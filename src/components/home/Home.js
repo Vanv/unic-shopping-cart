@@ -14,7 +14,6 @@ class Home extends Component {
 
 
   handleAddToCart = (e, product) => {
-    console.log("Product added to cart");
     this.setState(state => {
       const cartItems = state.cartItems;
       let productExistInShoppingCart = false;
@@ -29,8 +28,16 @@ class Home extends Component {
       if(!productExistInShoppingCart) {
         cartItems.push({...product, count: 1});
       }
-      return { cartItems: cartItems};
+      return { cartItems};
     });
+  }
+
+  handleRemoveItem = (e, product) => {
+    this.setState(state => {
+      const cartItems = state.cartItems.filter(r => r.id !== product.id);
+      return { cartItems}
+    })
+
   }
 
   render() {
@@ -46,7 +53,7 @@ class Home extends Component {
         <div className="floatcart-wrapper">
           {this.state.cartItems.length > 0 && (
             <div className="floatcart p-5">
-              <CartItems cartItems={this.state.cartItems} />
+              <CartItems cartItems={this.state.cartItems} handleRemoveItem={this.handleRemoveItem} />
             </div>
           )}
         </div>

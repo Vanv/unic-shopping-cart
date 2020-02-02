@@ -52,6 +52,13 @@
     top: 0px;
     right: 0px;
     font-size: 17px;
+    from {
+      transform: translate(100%);
+    }
+    to {
+      transform: translate(0%);
+      transition: transform 500ms ease-in-out;
+    }
 }
 
 .cartLength span {
@@ -63,6 +70,14 @@
   margin-right: 10px;
 }
 
+.btn-danger {
+  color: #000 ;
+  background-color: #fff;
+  border: none;
+}
+.btn-danger:hover {
+  background-color: #00adef;
+}
 
 @keyframes App-logo-spin {
   from {

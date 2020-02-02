@@ -4,7 +4,6 @@ import { FaCartPlus } from "react-icons/fa";
 class CartItems extends Component {
   render() {
     const { cartItems } = this.props;
-    console.log(cartItems.length);
     return(
       <div>
         <p className="text-center cartIcon"> <FaCartPlus /><span className="pl-1"> Cart</span> </p>
@@ -25,7 +24,8 @@ class CartItems extends Component {
                           </div>
 
                           <div className="float-right">
-                            delete button
+                            <button className= "btn btn-danger" size="sm" onClick={(e) => this.props.handleRemoveItem(e, item)}>X
+                            </button>
                           </div>
                         </div>
                       </li>

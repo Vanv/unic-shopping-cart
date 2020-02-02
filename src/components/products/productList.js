@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FaShoppingBasket } from "react-icons/fa";
 
 
 
@@ -17,7 +18,7 @@ class ProductList extends Component {
                 <h5 className="card-title">{product.name}</h5>
                 <p className="card-text float-right"><small>$</small><span className="product-price">{(product.price).toFixed(2)}</span></p>
                 <div>
-                  <button type="button" onClick={(e) => this.props.handleAddToCart(e, product) } className="btn btn-dark btn-lg btn-block">Add to Cart</button>
+                  <button type="button" onClick={(e) => this.props.handleAddToCart(e, product) } className="btn btn-dark btn-lg btn-block"><FaShoppingBasket /> Add to Cart</button>
                 </div>
               </div>
             </div>
