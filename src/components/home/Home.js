@@ -7,17 +7,30 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      cartItems: []
+      cartItems: [],
+      isOpen: false
     }
   }
 
 
-  handleAddToCart = () => {
+  handleAddToCart = (e, product) => {
     console.log("Product added to cart");
     this.setState(state => {
       const cartItems = state.cartItems;
+      let productExistInShoppingCart = false;
 
-    })
+      cartItems.forEach( c => {
+        if(c.id === product.id) {
+          c.count += 1;
+          productExistInShoppingCart = true;
+        }
+      });
+
+      if(!productExistInShoppingCart) {
+        cartItems.push({...product, count: 1});
+      }
+      return { cartItems: cartItems};
+    });
   }
 
   render() {
@@ -31,9 +44,11 @@ class Home extends Component {
           </div>
         </div>
         <div className="floatcart-wrapper">
-          <div className="floatcart p-5">
-            <CartItems />
-          </div>
+          {this.state.cartItems.length > 0 && (
+            <div className="floatcart p-5">
+              <CartItems cartItems={this.state.cartItems} />
+            </div>
+          )}
         </div>
       </div>
     )

@@ -40,6 +40,21 @@
   padding-left: 3px;
 }
 
+/*Cartitems div*/
+.floatcart-wrapper .floatcart {
+  width: 325px;
+}
+
+.floatcart {
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    font-size: 17px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
